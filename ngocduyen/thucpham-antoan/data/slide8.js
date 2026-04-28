@@ -1,0 +1,9 @@
+(function(){var loadHandler=window['sl_{067DF579-6FD4-41E6-BD20-658D07059BB9}'];loadHandler&&loadHandler(7, '<div id="spr0_47142409"><div id="spr1_47142409" class="kern slide"><img id="img4_47142409" src="data/img11.png" width="720px" height="405px" alt="" style="left:0px;top:0px;"/></div><div id="spr2_47142409" class="kern slide"><div id="spr3_47142409" style="left:35.33px;top:37.626px;"><img id="img0_47142409" src="data/img27.png" width="279" height="184" alt="A person spraying plants in a field\
+\
+Description automatically generated" style="left:-0.234px;top:-0.167px;"/></div><div id="spr4_47142409" style="left:44.206px;top:228.557px;"><img id="img1_47142409" src="data/img28.png" width="267" height="179" alt="A cartoon of a person cooking food\
+\
+Description automatically generated" style="left:-0.002px;top:-0.094px;"/></div><div id="spr5_47142409" style="left:386.454px;top:241.615px;"><img id="img2_47142409" src="data/img29.png" width="267" height="166" alt="A cartoon of a person cutting a piece of meat\
+\
+Description automatically generated" style="left:-0.002px;top:-0.123px;"/></div><div id="spr6_47142409" style="left:386.454px;top:34.503px;"><img id="img3_47142409" src="data/img30.png" width="298" height="194" alt="A person wearing a hat and holding a pot and a bicycle\
+\
+Description automatically generated" style="left:0.108px;top:0.027px;"/></div><div id="spr7_47142409" style="left:-27.506px;top:-1.578px;"><div style="width:0px;"><span id="txt0_47142409" class="nokern relpos" data-width="131.593750" style="left:131.024px;top:5.304px;">Dấu hiệu </span> <span id="txt1_47142409" class="nokern relpos" data-width="93.390625" style="left:131.019px;top:5.304px;">không </span> <span id="txt2_47142409" class="nokern relpos" data-width="258.359375" style="left:131.014px;top:5.304px;">an toàn thực phẩm</span></div></div></div></div>', '{"s":[]}');})();
