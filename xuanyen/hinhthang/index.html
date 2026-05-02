@@ -2,7 +2,7 @@
 <!-- Created with iSpring --><!-- 1262 644 --><!--version 10.0.0.580 --><!--type html --><!--mainFolder ../ -->
 <html style=background-color:#ced1d3;>
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/><meta name="format-detection" content="telephone=no"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="msapplication-tap-highlight" content="no"/><title>BÀI GIẢNG E-LEARNIG-PHẠM THỊ XUÂN YẾN-GV466-NTS sua</title><link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png"/><link rel="shortcut icon" type="image/ico" href="data/favicon.ico"/><script src="lms.js"></script><style>body {background-color:#ced1d3;}#spr0_59973fb4 {display:none;}</style>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/><meta name="format-detection" content="telephone=no"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="msapplication-tap-highlight" content="no"/><title>Toán 4: Diện tích hình thang</title><link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png"/><link rel="shortcut icon" type="image/ico" href="data/favicon.ico"/><script src="lms.js"></script><style>body {background-color:#ced1d3;}#spr0_59973fb4 {display:none;}</style>
     
     
     <style>
@@ -158,5 +158,49 @@
 })
 );
     </script>
+	
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+	<script>
+		const firebaseConfig = {
+			apiKey: "AIzaSyAxrdM2JVDWud04V2MRoW_87u9r1yjPm3g",
+			authDomain: "nts-baigiang-lms.firebaseapp.com",
+			databaseURL: "https://nts-baigiang-lms-default-rtdb.asia-southeast1.firebasedatabase.app",
+			projectId: "nts-baigiang-lms",
+			storageBucket: "nts-baigiang-lms.firebasestorage.app",
+			messagingSenderId: "755286377836",
+			appId: "1:755286377836:web:bcc250ec6021112c8bdf49"
+		};
+		if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
+  
+		function sendView() {
+			var title = document.title;
+			if (!title || title.toLowerCase().includes("not found") || title === "index") {
+				setTimeout(sendView, 2000); return;
+			}
+	
+		// 1. Chuyển thành chữ thường và bỏ dấu tiếng Việt
+			var lessonId = title.toLowerCase()
+								.normalize("NFD")
+								.replace(/[\u0300-\u036f]/g, "");
+
+		// 2. Xử lý các ký tự đặc biệt theo ý anh:
+		// - Xóa dấu + và dấu ; (để 30+20 thành 3020)
+		// - Thay khoảng trắng và các ký tự khác thành dấu gạch ngang (-)
+		// - Loại bỏ dấu gạch ngang dư thừa
+			lessonId = lessonId.replace(/[+;]/g, "")           // Xóa hẳn dấu + và ;
+							   .replace(/[^a-z0-9]/g, "-")     // Mọi ký tự lạ khác biến thành -
+                               .replace(/-+/g, "-")            // Gộp nhiều dấu -- thành một dấu -
+                               .replace(/^-+|-+$/g, "");       // Cắt dấu - ở đầu và cuối dòng
+
+			firebase.database().ref("counts/" + lessonId).update({
+				views: firebase.database.ServerValue.increment(1),
+				lastTime: new Date().toLocaleDateString('vi-VN') + " " + new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })
+			});
+		}	
+    
+			setTimeout(sendView, 20000);
+	</script>	
+		
 </body>
 </html>
